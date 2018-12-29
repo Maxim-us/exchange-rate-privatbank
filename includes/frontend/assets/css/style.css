@@ -1,0 +1,25 @@
+/*css styles*/
+.mx-exchange-rate-wrap {
+	min-width: 200px;
+}
+.mx-exchange-rate-row {
+	display: inline-block;
+	width: 100%;
+}
+.mx-exchange-rate-row > div {
+	width: 33.33%;
+	display: inline-block;
+	text-align: center;
+	float: left;
+}
+.mx-rate-name {
+	font-weight: bold;
+}
+.mx-exchange-rate-row-header .mx-rate-name {
+	font-weight: normal;
+}
+.clearfix:after {
+	display: block;
+	content: "";
+	clear: both;
+}
