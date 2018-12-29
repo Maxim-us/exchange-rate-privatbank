@@ -4,7 +4,7 @@ Plugin Name: Курс валют ПриватБанка
 Plugin URI: https://github.com/Maxim-us/exchange-rate-privatbank
 Description: Плагин позволяет вывести курс валют от Приват Банка на сайте в области виджетов.
 Author: Marko Maksym
-Version: 1.0
+Version: 1.1
 Author URI: https://github.com/Maxim-us
 */
 

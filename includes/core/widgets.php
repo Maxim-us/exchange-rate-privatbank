@@ -39,37 +39,60 @@ class mxerpb_exchange_rate_privatbank extends WP_Widget {
 	}
 
 	public function show_exchange_rate_privatbank()
-	{
+	{		
 
-		$data = file_get_contents( 'https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5' );
+		$url = 'https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5';
 
-		$exchange_courses = json_decode( $data, true );
+		if( $this->check_if_url_exists( $url ) ) {
 
-		?>
+			$data = file_get_contents( $url );
 
-		<div class="clearfix"></div>
-		<div class="mx-exchange-rate-wrap">
+			$exchange_courses = json_decode( $data, true );
 
-			<div class="mx-exchange-rate-row mx-exchange-rate-row-header">
-				<div class="mx-rate-name">Валюта</div>
-				<div class="mx-rate-buy">Покупка</div>
-				<div class="mx-rate-sale">Продажа</div>
-			</div>
+			if( is_array( $exchange_courses ) ) {
 
-			<?php foreach( $exchange_courses as $exchange_cours ) : ?>
+				?>
 
-				<div class="mx-exchange-rate-row">
-					<div class="mx-rate-name"><?php echo $exchange_cours['ccy']; ?></div>
-					<div class="mx-rate-buy"><?php echo round( $exchange_cours['buy'], 2 ); ?></div>
-					<div class="mx-rate-sale"><?php echo round( $exchange_cours['sale'], 2 ); ?></div>
+				<div class="clearfix"></div>
+				<div class="mx-exchange-rate-wrap">
+
+					<div class="mx-exchange-rate-row mx-exchange-rate-row-header">
+						<div class="mx-rate-name">Валюта</div>
+						<div class="mx-rate-buy">Покупка</div>
+						<div class="mx-rate-sale">Продажа</div>
+					</div>
+
+					<?php foreach( $exchange_courses as $exchange_cours ) : ?>
+
+						<div class="mx-exchange-rate-row">
+							<div class="mx-rate-name"><?php echo $exchange_cours['ccy']; ?></div>
+							<div class="mx-rate-buy"><?php echo round( $exchange_cours['buy'], 2 ); ?></div>
+							<div class="mx-rate-sale"><?php echo round( $exchange_cours['sale'], 2 ); ?></div>
+						</div>
+
+					<?php endforeach; ?>
+
 				</div>
+				<div class="clearfix"></div>
 
-			<?php endforeach; ?>
+			<? }
 
-		</div>
-		<div class="clearfix"></div>
+		}
 
-	<? }
+	}
+
+		public function check_if_url_exists( $url )
+		{
+
+			$curl = curl_init( $url );
+
+			curl_setopt( $curl, CURLOPT_NOBODY, true );
+
+			$result = curl_exec($curl);
+
+			return $result;
+
+		}
 
 	/**
 	 * Back-end widget form.

@@ -28,7 +28,7 @@ final class MXERPExchangeRatePrivatBank
 		$this->mxerp_define( 'MXERP_PLUGIN_ABS_PATH', dirname( MXERP_PLUGIN_PATH ) . '/' );
 
 		// version
-		$this->mxerp_define( 'MXERP_PLUGIN_VERSION', '1.0' ); // Must be replaced before production on for example '1.0'
+		$this->mxerp_define( 'MXERP_PLUGIN_VERSION', '1.1' ); // Must be replaced before production on for example '1.0'
 
 
 	}

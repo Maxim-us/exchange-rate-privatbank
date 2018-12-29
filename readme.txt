@@ -3,7 +3,7 @@ Contributors: markomaksym
 Tags: курс валют, приват банк, курс валют приватбанк
 Requires at least: 4.9
 Tested up to: 5.0
-Stable tag: 1.0
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -36,3 +36,6 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 = 1.0 =
 * Exchange Rate Privatbank
+
+= 1.1 =
+* Exchange Rate Privatbank (check the 404 error request)
